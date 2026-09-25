@@ -74,11 +74,35 @@ function resolveFilePath(reqUrl) {
 }
 
 const server = http.createServer((req, res) => {
+  if (req.url === '/__debug') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    try {
+      res.end(JSON.stringify({
+        cwd: process.cwd(),
+        dirname: __dirname,
+        cwdFiles: fs.readdirSync(process.cwd()),
+        dirnameFiles: fs.readdirSync(__dirname),
+        assetsInCwd: fs.existsSync(path.join(process.cwd(), 'assets')) ? fs.readdirSync(path.join(process.cwd(), 'assets')) : 'no assets in cwd',
+        assetsInDirname: fs.existsSync(path.join(__dirname, 'assets')) ? fs.readdirSync(path.join(__dirname, 'assets')) : 'no assets in dirname'
+      }, null, 2));
+    } catch (e) {
+      res.end(JSON.stringify({ error: e.message, stack: e.stack }));
+    }
+    return;
+  }
+
   const filePath = resolveFilePath(req.url);
 
   if (!filePath || !fs.existsSync(filePath)) {
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('404 Not Found');
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      error: '404 Not Found',
+      requestedUrl: req.url,
+      cwd: process.cwd(),
+      dirname: __dirname,
+      cwdFiles: fs.existsSync(process.cwd()) ? fs.readdirSync(process.cwd()) : [],
+      dirnameFiles: fs.existsSync(__dirname) ? fs.readdirSync(__dirname) : []
+    }, null, 2));
     return;
   }
 
