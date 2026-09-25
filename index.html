@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>NISHAMMA+ | A Family Original — Happy Birthday Nishamma ❤️</title>
+  <meta name="description" content="Experience the cinematic streaming original series celebrating Nisha Bernard (Nishamma). Her memories, her family, her laughter, and her boundless love.">
+  <meta name="theme-color" content="#080808">
+
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:title" content="NISHAMMA+ | A Family Original">
+  <meta property="og:description" content="Happy Birthday to the heart of our family, Nisha Bernard.">
+  <meta property="og:image" content="assets/image.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23E50914'/><text x='50%' y='68%' font-size='60' font-weight='900' font-family='sans-serif' fill='white' text-anchor='middle'>N</text></svg>">
+
+  <!-- Google Fonts: Bebas Neue, Cinzel, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;700;900&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+
+  <!-- Application Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/streaming.css">
+  <link rel="stylesheet" href="css/interactive.css">
+</head>
+<body>
+
+  <!-- Film Grain & Ambient Vignette -->
+  <div class="film-grain" aria-hidden="true"></div>
+  <div class="cinematic-vignette" aria-hidden="true"></div>
+
+  <!-- Top Cinematic Scroll Progress Bar & Stage Indicator -->
+  <div class="scroll-tracker-container" aria-hidden="true">
+    <div class="scroll-tracker-bar" id="scroll-progress-bar"></div>
+  </div>
+  <div class="scroll-stage-pill" id="scroll-stage-pill" aria-label="Current Episode Stage">
+    <span class="scroll-stage-dot"></span>
+    <span id="scroll-stage-text">INTRO</span>
+  </div>
+
+  <!-- 1. CINEMATIC OPENING INTRO (5-8s) -->
+  <section class="cinematic-intro-screen" id="cinematic-intro" aria-label="Cinematic Intro">
+    <div class="intro-content-wrap">
+      <div class="intro-monogram-box">
+        <div class="intro-laser-line" id="intro-laser-line"></div>
+        <div class="intro-monogram" id="intro-monogram">N</div>
+      </div>
+      <div class="intro-badge-tag" id="intro-badge-tag">A FAMILY ORIGINAL</div>
+      <div class="intro-title-reveal" id="intro-title-reveal">NISHAMMA</div>
+    </div>
+    <button class="skip-intro-btn" id="skip-intro-btn">Skip Intro ➔</button>
+  </section>
+
+  <!-- 2. "WHO'S WATCHING?" PROFILE SELECTION SCREEN -->
+  <section class="profile-screen-overlay" id="profile-selection-screen" aria-label="Profile Selection">
+    <h1 class="profile-heading">Who's watching?</h1>
+    <div class="profile-grid" id="profile-grid">
+      <!-- Injected dynamically from NISHAMMA_DATA.profiles -->
+    </div>
+  </section>
+
+  <!-- STREAMING TOP NAVBAR -->
+  <header class="stream-header" id="stream-header">
+    <a href="#hero-section" class="brand-logo" aria-label="Nishamma Plus Home">
+      <div class="brand-monogram">N</div>
+      <div class="brand-text">NISHAMMA<span class="brand-plus">+</span></div>
+    </a>
+
+    <nav aria-label="Main Navigation">
+      <ul class="stream-nav-links">
+        <li><a href="#hero-section" class="stream-nav-link active">Home</a></li>
+        <li><a href="#continue-watching-section" class="stream-nav-link">Episodes</a></li>
+        <li><a href="#episode-02" class="stream-nav-link">Cast</a></li>
+        <li><a href="#episode-05" class="stream-nav-link">Grandma Era</a></li>
+        <li><a href="#soundtrack-section" class="stream-nav-link">Soundtrack</a></li>
+        <li><a href="#finale-section" class="stream-nav-link" style="color:var(--ruby-bright);">Birthday Finale ❤️</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="header-audio-btn" id="header-audio-toggle" title="Play / Pause Soundtrack (Aluva Puzha)" aria-label="Toggle Soundtrack">
+        <span class="music-bars-icon">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="header-audio-label">Aluva Puzha 🎵</span>
+      </button>
+
+      <div class="profile-avatar-pill" id="header-profile-pill" title="Switch Profile">
+        <img src="assets/image.png" alt="Profile" class="profile-avatar-img" id="header-avatar-img">
+        <span class="profile-avatar-name" id="header-avatar-name">Nishamma</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN STREAMING CONTENT CONTAINER -->
+  <main id="main-content">
+
+    <!-- 3. MAIN CINEMATIC HERO -->
+    <section class="hero-section" id="hero-section" aria-label="Featured Original Series">
+      <div class="hero-backdrop-container">
+        <img src="assets/image.png" alt="Nishamma in royal saree" class="hero-backdrop-media">
+        <div class="hero-gradient-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge-row">
+          <span class="badge-original">A Family Original</span>
+          <span class="badge-match">99.9% Match for You</span>
+        </div>
+
+        <h1 class="hero-title-main">NISHAMMA</h1>
+        <h2 class="hero-title-subtitle">THE HEART OF OUR FAMILY</h2>
+
+        <p class="hero-quote">
+          "Some people are part of the family.<br>
+          Some people are the reason it feels like home."
+        </p>
+
+        <div class="hero-metadata-row">
+          <span>2026</span>
+          <span class="badge-age">U/A 13+</span>
+          <span>∞ SEASONS</span>
+          <span class="badge-quality">4K ULTRA HD</span>
+          <span class="badge-quality">ATMOS</span>
+          <span>FAMILY • LOVE • COMEDY • FEEL-GOOD</span>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="hero-play-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            PLAY HER STORY
+          </button>
+          <button class="btn btn-secondary" id="hero-my-list-btn">
+            ♡ MY LIST
+          </button>
+          <button class="btn btn-secondary" id="hero-more-info-btn">
+            ℹ MORE INFO
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CONTINUE WATCHING: NISHAMMA -->
+    <section class="stream-row-section" id="continue-watching-section" aria-label="Continue Watching Shelf">
+      <div class="row-header">
+        <div>
+          <h2 class="row-title">CONTINUE WATCHING: NISHAMMA</h2>
+          <p class="row-subtitle">Episodes from a life that made everyone else's world brighter</p>
+        </div>
+      </div>
+
+      <div class="shelf-viewport">
+        <button class="shelf-nav-btn prev" id="cw-prev-btn" aria-label="Scroll left">❮</button>
+        <div class="shelf-track" id="continue-watching-track">
+          <!-- Injected dynamically from NISHAMMA_DATA.continueWatching -->
+        </div>
+        <button class="shelf-nav-btn next" id="cw-next-btn" aria-label="Scroll right">❯</button>
+      </div>
+    </section>
+
+    <!-- 5. EPISODE 01: THE MALAYSIAN DAYS 🇲🇾 -->
+    <section class="stream-row-section" id="episode-01" aria-label="Episode 01 Malaysian Days">
+      <div class="row-header">
+        <div>
+          <div class="badge-original" style="margin-bottom:6px;">SEASON 01 • EPISODE 01</div>
+          <h2 class="row-title">THE MALAYSIAN DAYS 🇲🇾</h2>
+          <p class="row-subtitle">"Some memories don't fade. They simply become part of who we are."</p>
+        </div>
+      </div>
+
+      <div class="malaysian-days-hero">
+        <div class="malaysia-grid">
+          <div>
+            <span class="badge-match" style="margin-bottom:12px; display:inline-block;">FEATURED CHAPTER</span>
+            <h3 style="font-family:var(--font-serif); font-size:clamp(1.5rem, 2.5vw, 2.2rem); margin-bottom:14px; color:#FFFFFF;">
+              Adventures in Kuala Lumpur & Genting
+            </h3>
+            <p style="font-size:1.05rem; line-height:1.7; color:var(--text-secondary); margin-bottom:24px;">
+              From the shining towers of KLCC to the lively heights of Genting Highlands, Nishamma brought her signature smile, warmth, and grace to every single moment. Walking hand in hand with Bernard, soaking in every view, and reminding everyone to drink water.
+            </p>
+            <div style="display:flex; gap:16px; flex-wrap:wrap; font-size:0.85rem; color:var(--text-muted);">
+              <span>📍 Petronas Towers</span>
+              <span>📍 KLCC Lake Symphony</span>
+              <span>📍 Genting High Line</span>
+              <span>📍 Urban Parks</span>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:0.85rem; font-weight:700; color:var(--ruby-bright); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px;">
+              TAP ANY PHOTO TO ENLARGE
+            </div>
+            <div class="filmstrip-strip" id="malaysian-moments-filmstrip">
+              <!-- Injected dynamically from NISHAMMA_DATA.malaysianMoments -->
+            </div>
+
+            <!-- Featured Video Reel -->
+            <div style="margin-top:20px; border-radius:var(--radius-sm); overflow:hidden; border:1px solid var(--border-subtle); background:#000;">
+              <div style="padding:8px 14px; background:rgba(24,24,24,0.9); font-size:0.75rem; font-weight:700; color:var(--ruby-bright); display:flex; align-items:center; gap:8px;">
+                <span>▶ FEATURED SCENE IN MOTION</span>
+                <span class="badge-quality">HD</span>
+              </div>
+              <video controls playsinline preload="metadata" style="width:100%; max-height:280px; object-fit:cover;">
+                <source src="assets/AQMZrs7u5YUSIPh5mXAxEw30izgVHFW-vWN-IXM6is4vPbY9OBIZb6WJPiioyhKVZiP4g79Svtek-SSd6p5IyWLrTQy13_aIG_BXqg23kA.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. EPISODE 02: FAMILY FIRST (MEET THE CAST) -->
+    <section class="stream-row-section" id="episode-02" aria-label="Episode 02 Cast Browser">
+      <div class="row-header">
+        <div>
+          <div class="badge-original" style="margin-bottom:6px;">SEASON 01 • EPISODE 02</div>
+          <h2 class="row-title">MEET THE CAST</h2>
+          <p class="row-subtitle">The ensemble that makes Nishamma's life a blockbuster hit</p>
+        </div>
+      </div>
+
+      <div class="shelf-viewport">
+        <button class="shelf-nav-btn prev" id="cast-prev-btn" aria-label="Scroll cast left">❮</button>
+        <div class="shelf-track" id="cast-track">
+          <!-- Injected dynamically from NISHAMMA_DATA.cast -->
+        </div>
+        <button class="shelf-nav-btn next" id="cast-next-btn" aria-label="Scroll cast right">❯</button>
+      </div>
+    </section>
+
+    <!-- 7. EPISODE 03: THE OVERCARING MOM ❤️ -->
+    <section class="stream-row-section" id="episode-03" aria-label="Episode 03 Overcaring Mom">
+      <div class="row-header" style="justify-content:center; text-align:center;">
+        <div>
+          <div class="badge-original" style="margin-bottom:6px; justify-content:center;">SEASON 01 • EPISODE 03</div>
+          <h2 class="row-title" style="justify-content:center;">THE OVERCARING MOM ❤️</h2>
+          <p class="row-subtitle" style="font-size:1.05rem; max-width:600px; margin:6px auto 0;">
+            "Some call it worrying. We call it Nishamma's love language."
+          </p>
+        </div>
+      </div>
+
+      <div class="mom-chat-container">
+        <div class="chat-header">
+          <div class="chat-user-info">
+            <img src="assets/image copy 5.png" alt="Amma" class="chat-avatar">
+            <div>
+              <div class="chat-user-title">Amma ❤️ (Nishamma)</div>
+              <div class="chat-user-status">online • typing...</div>
+            </div>
+          </div>
+          <button class="btn btn-secondary" id="replay-chat-btn" style="padding:6px 14px; font-size:0.8rem;">
+            ↻ Replay Chat
+          </button>
+        </div>
+
+        <div class="chat-body" id="chat-simulator-body" aria-live="polite">
+          <!-- Animated conversation injected via JS -->
+        </div>
+
+        <!-- Simulated Call Banner -->
+        <div style="padding:0 20px 20px;">
+          <div class="call-alert-banner">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <span style="font-size:1.8rem; animation:pulse-dot 1s infinite;">📞</span>
+              <div>
+                <div style="font-weight:700; color:#FFF;">Incoming Call: Amma ❤️</div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Family WhatsApp Audio</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <button class="btn btn-primary" style="padding:8px 18px; font-size:0.85rem;" onclick="alert('Amma: &quot;Hello mole/mone! Did you eat? Where are you right now?&quot; ❤️')">
+                Answer
+              </button>
+              <button class="btn btn-secondary" style="padding:8px 14px; font-size:0.85rem; opacity:0.6; cursor:not-allowed;" title="You cannot decline Amma's call!" onclick="alert('Rule #1 in this family: You never decline Amma\'s call! 😂❤️')">
+                Decline ✕
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. EPISODE 04: BREAKING NEWS: NISHAMMA EDITION (NNN) -->
+    <section class="stream-row-section" id="episode-04" aria-label="Episode 04 Breaking News">
+      <div class="row-header" style="justify-content:center; text-align:center;">
+        <div>
+          <div class="badge-original" style="margin-bottom:6px; justify-content:center;">SEASON 01 • EPISODE 04</div>
+          <h2 class="row-title" style="justify-content:center;">BREAKING NEWS: NISHAMMA EDITION 🚨</h2>
+          <p class="row-subtitle">Official broadcaster of 100% unverified WhatsApp reels</p>
+        </div>
+      </div>
+
+      <div class="nnn-container">
+        <div class="nnn-top-bar">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="nnn-live-badge">● LIVE</span>
+            <span>NISHAMMA NEWS NETWORK (NNN)</span>
+          </div>
+          <span style="font-size:0.85rem; color:#FFD166;">BROADCASTING TO FAMILY GROUP 24/7</span>
+        </div>
+
+        <div class="nnn-ticker-wrap">
+          <div class="nnn-ticker-content">
+            🚨 BREAKING: Nishamma finds new reel about drinking hot turmeric water at 3:45 AM • Confidence level: 100% • Forwarded to 7 family groups before anyone woke up • Aby fact-check still loading • Amma replies: "Still very good knowledge!" 😂 •
+          </div>
+        </div>
+
+        <div class="nnn-grid">
+          <div class="nnn-video-box">
+            <video class="nnn-video" controls playsinline preload="metadata">
+              <source src="assets/AQPTE0yyjbw3LKJ4D9pVyZx-SfVGD87Mp-VJ7fw8kKAde9t5Pm1KBO2lBWd3Nf_hwpkB0VxhSoybJTO0bZ88rWPpIphaIYxkqV4CEv-8hQ.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div style="position:absolute; top:12px; left:12px; padding:4px 10px; background:rgba(229,9,20,0.85); border-radius:3px; font-size:0.75rem; font-weight:800; color:#FFF;">
+              EXHIBIT A: LEAKED REEL FOOTAGE
+            </div>
+          </div>
+
+          <div class="nnn-cards-column">
+            <div class="nnn-fact-card">
+              <div class="nnn-fact-title">Dispatch Status</div>
+              <div class="nnn-fact-body">Forwarded to Family Group at 6:15 AM with "Good Morning" stickers.</div>
+            </div>
+
+            <div class="nnn-fact-card">
+              <div class="nnn-fact-title">Source Credibility</div>
+              <div class="nnn-fact-body">One Reel Nishamma Found on Instagram 😭</div>
+            </div>
+
+            <div class="nnn-fact-card">
+              <div class="nnn-fact-title">Confidence Level</div>
+              <div class="nnn-fact-body">100% — "It was on internet so it must be true!"</div>
+            </div>
+
+            <div class="nnn-fact-card">
+              <div class="nnn-fact-title">Family Fact Check</div>
+              <div class="nnn-fact-body">Pending forever...</div>
+            </div>
+
+            <button class="btn btn-primary" id="check-source-btn" style="margin-top:10px;">
+              CHECK THE SOURCE 😂
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. EPISODE 05: GRANDMA ERA ❤️ -->
+    <section class="stream-row-section" id="episode-05" aria-label="Episode 05 Grandma Era">
+      <div class="grandma-era-hero">
+        <div class="grandma-grid">
+          <div>
+            <div class="badge-original" style="margin-bottom:8px; color:#FFD166;">
+              NEW SEASON UNLOCKED • EPISODE 05
+            </div>
+            <h2 style="font-family:var(--font-display); font-size:clamp(2.4rem, 5vw, 4.2rem); letter-spacing:0.04em; color:#FFFFFF; margin-bottom:18px;">
+              GRANDMA ERA ❤️
+            </h2>
+            <div style="display:flex; gap:12px; margin-bottom:20px; flex-wrap:wrap;">
+              <span class="badge-age" style="border-color:#FFD166; color:#FFD166;">KAYLU • Aby + Ammu</span>
+              <span class="badge-age" style="border-color:#FFD166; color:#FFD166;">EMY • Aleena + Alen</span>
+            </div>
+
+            <p style="font-family:var(--font-serif); font-size:clamp(1.15rem, 2vw, 1.45rem); font-style:italic; line-height:1.6; color:#FFEAA7; margin-bottom:20px;">
+              "Then came two tiny new reasons for Nishamma to worry even more."
+            </p>
+
+            <p style="font-size:1.15rem; line-height:1.75; color:#F0F0F0; margin-bottom:28px;">
+              And somehow, her already enormous heart made even more room. Holding Kaylu and Emy in her arms, Nishamma stepped into her greatest role yet — a grandmother whose love knows no bounds, whose lap is always ready, and whose smile lights up every room.
+            </p>
+
+            <div style="font-weight:700; color:#FFD166; font-size:0.95rem;">
+              ⭐ Rated 10/10 by Kaylu & Emy: "Best Grandma in the Universe"
+            </div>
+          </div>
+
+          <div class="grandma-photo-frame" onclick="openGalleryLightbox(1)" tabindex="0" role="button" aria-label="Nishamma holding Kaylu and Emy">
+            <img src="assets/image copy.png" alt="Nishamma holding Kaylu and Emy by the water" class="grandma-photo">
+            <div style="position:absolute; bottom:0; left:0; right:0; padding:18px; background:linear-gradient(0deg, rgba(8,8,8,0.9), transparent); text-align:center;">
+              <span style="font-weight:700; color:#FFD166; font-size:1.05rem;">Nishamma with Kaylu & Emy ❤️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. BECAUSE SHE LOVES... (WATCHLIST) -->
+    <section class="stream-row-section" id="watchlist-section" aria-label="Nishamma's Watchlist">
+      <div class="row-header">
+        <div>
+          <h2 class="row-title">BECAUSE SHE LOVES... (NISHAMMA'S WATCHLIST)</h2>
+          <p class="row-subtitle">Curated collections based on her favorite moments and habits</p>
+        </div>
+      </div>
+
+      <div class="watchlist-grid" id="watchlist-grid">
+        <!-- Injected dynamically from NISHAMMA_DATA.watchlistGenres -->
+      </div>
+    </section>
+
+    <!-- 11. UNIQUE FEATURE: FAMILY LOVE METER -->
+    <section class="stream-row-section" id="love-meter-section" aria-label="Family Love Meter">
+      <div class="love-meter-card">
+        <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem, 3.2vw, 2.6rem); color:#FFFFFF; margin-bottom:8px;">
+          HOW MUCH DOES NISHAMMA CARE?
+        </h2>
+        <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:18px;">
+          Press and hold the button to measure Amma's love index
+        </p>
+
+        <div class="love-meter-track">
+          <div class="love-meter-fill" id="love-meter-fill"></div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <span style="font-size:0.85rem; color:var(--text-muted);">Care Index:</span>
+          <span style="font-family:var(--font-mono); font-size:1.8rem; font-weight:800; color:var(--ruby-bright);" id="love-meter-percent">10%</span>
+        </div>
+
+        <p id="love-meter-status" style="min-height:48px; font-size:1rem; color:#FFFFFF; margin-bottom:24px; line-height:1.4;">
+          Amma is quietly observing everyone...
+        </p>
+
+        <button class="love-meter-hold-btn" id="love-meter-btn">
+          PRESS & HOLD TO MEASURE ❤️
+        </button>
+      </div>
+    </section>
+
+    <!-- 12. MEMORY MOSAIC (MORE FROM THE NISHAMMA UNIVERSE) -->
+    <section class="stream-row-section" id="mosaic-section" aria-label="Memory Mosaic">
+      <div class="row-header">
+        <div>
+          <h2 class="row-title">MORE FROM THE NISHAMMA UNIVERSE</h2>
+          <p class="row-subtitle">Photographs and moments preserved in their true aspect ratios. Tap any photo to view full screen.</p>
+        </div>
+      </div>
+
+      <div class="mosaic-gallery" id="mosaic-gallery">
+        <!-- Injected dynamically from NISHAMMA_DATA.memoryMosaic -->
+      </div>
+    </section>
+
+    <!-- 13. ORIGINAL SOUNDTRACK PLAYER -->
+    <section class="stream-row-section" id="soundtrack-section" aria-label="Original Soundtrack">
+      <div class="row-header" style="justify-content:center; text-align:center;">
+        <div>
+          <div class="badge-original" style="margin-bottom:6px; justify-content:center;">OFFICIAL OST</div>
+          <h2 class="row-title" style="justify-content:center;">NISHAMMA: ORIGINAL SOUNDTRACK</h2>
+          <p class="row-subtitle" style="font-size:1.05rem;">
+            "Made from her story. For the woman who made everyone else's story better."
+          </p>
+        </div>
+      </div>
+
+      <div class="music-player-card" id="music-player-card">
+        <div class="album-vinyl-wrap">
+          <img src="assets/image.png" alt="Album Cover Nishamma" class="album-art-img">
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+            <div>
+              <span class="badge-match" style="font-size:0.75rem;">ORIGINAL THEME</span>
+              <h3 style="font-size:1.6rem; font-weight:800; color:#FFFFFF; margin-top:4px;" id="soundtrack-title">
+                Aluva Puzha
+              </h3>
+              <p style="font-size:0.85rem; color:var(--text-muted);" id="soundtrack-status">
+                Official Soundtrack • Nishamma's Favorite Premam Anthem 🎵
+              </p>
+            </div>
+            <label for="soundtrack-file-input" class="btn btn-secondary" style="padding:6px 14px; font-size:0.75rem; cursor:pointer;" title="Select your custom song">
+              📁 Load Song
+            </label>
+            <input type="file" id="soundtrack-file-input" accept="audio/*" style="display:none;">
+          </div>
+
+          <!-- Dynamic Waveform Canvas -->
+          <canvas id="soundtrack-waveform" class="waveform-canvas"></canvas>
+
+          <!-- Scrubber -->
+          <div class="audio-scrubber-row">
+            <span class="audio-time-label" id="soundtrack-time-cur">0:00</span>
+            <input type="range" class="audio-slider" id="soundtrack-slider" min="0" max="100" value="0" aria-label="Scrub audio track">
+            <span class="audio-time-label" id="soundtrack-time-dur">0:00</span>
+          </div>
+
+          <!-- Controls Row -->
+          <div class="player-controls-row">
+            <div style="display:flex; align-items:center; gap:16px;">
+              <button class="btn btn-primary" id="soundtrack-play-btn" style="width:52px; height:52px; border-radius:50%; padding:0;" aria-label="Play song">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+              <div style="font-size:0.9rem; font-weight:600; color:#FFF;">
+                Nishamma's Song
+              </div>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button class="btn-icon" id="soundtrack-mute-btn" aria-label="Mute or unmute">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+              </button>
+              <input type="range" id="soundtrack-volume" min="0" max="100" value="80" style="width:80px;" aria-label="Volume slider">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. BIRTHDAY FINALE -->
+    <section class="finale-section" id="finale-section" aria-label="Season Finale Birthday Tribute">
+      <div class="finale-sequence-container">
+        <div class="badge-original" style="justify-content:center; margin-bottom:20px;">
+          SEASON FINALE • THE TRIBUTE
+        </div>
+
+        <!-- Sequential Sentence Stream -->
+        <div class="finale-sentence-stream" id="finale-sentence-display" aria-live="polite">
+          "She worried."
+        </div>
+
+        <!-- Grand Birthday Headline -->
+        <h2 class="finale-grand-title" id="finale-grand-title">
+          HAPPY BIRTHDAY,<br>NISHAMMA ❤️
+        </h2>
+
+        <!-- Heartfelt Letter Reveal -->
+        <div class="finale-letter-box" id="finale-letter-box">
+          <p style="font-size:1.4rem; font-weight:700; color:var(--ruby-bright); margin-bottom:18px;">
+            Happy Birthday, Nishamma!
+          </p>
+
+          <p style="margin-bottom:18px;">
+            Thank you for loving us more than we can ever measure,<br>
+            for all the worrying,<br>
+            the calls,<br>
+            the care,<br>
+            and yes,<br>
+            even the fake news reels. 😂
+          </p>
+
+          <p style="margin-bottom:18px;">
+            You are the heart of our family,<br>
+            and Kaylu and Emy are so lucky<br>
+            to have you as their grandma.
+          </p>
+
+          <p style="font-weight:600; margin-bottom:24px;">
+            We love you so much.
+          </p>
+
+          <p style="font-family:var(--font-serif); font-size:1.5rem; font-weight:800; color:#FFFFFF;">
+            Happy Birthday, Amma! ❤️
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15. FINAL MOVIE-STYLE CREDITS -->
+    <footer class="credits-section" id="credits-section" aria-label="Ending Credits">
+      <div class="credits-container">
+        <div>
+          <div class="badge-original" style="justify-content:center; margin-bottom:12px;">A FAMILY ORIGINAL</div>
+          <h2 style="font-family:var(--font-display); font-size:2.8rem; letter-spacing:0.08em; color:#FFFFFF;">
+            CLOSING CREDITS
+          </h2>
+        </div>
+
+        <div>
+          <div class="credits-block-title">STARRING</div>
+          <div class="credits-block-name" style="color:var(--ruby-bright); font-size:2rem;">Nisha Bernard</div>
+        </div>
+
+        <div>
+          <div class="credits-block-title">FEATURING THE CAST</div>
+          <div style="font-size:1.25rem; font-weight:600; color:#FFF; line-height:1.8;">
+            Bernard • Aby • Ammu • Aleena • Alen • Kaylu • Emy
+          </div>
+        </div>
+
+        <div>
+          <div class="credits-block-title">GENRE</div>
+          <div style="font-size:1.15rem; color:#DDD;">Family • Love • Comedy • Unlimited Care</div>
+        </div>
+
+        <div>
+          <div class="credits-block-title">SPECIAL TALENT</div>
+          <div style="font-size:1.15rem; color:#DDD;">Making sure everyone has eaten</div>
+        </div>
+
+        <div>
+          <div class="credits-block-title">NEWS & REEL FORWARDING DEPARTMENT</div>
+          <div style="font-size:1.15rem; color:#DDD;">Nishamma 😂</div>
+        </div>
+
+        <div>
+          <div class="credits-block-title">CURRENT STATUS</div>
+          <div style="font-size:1.3rem; font-weight:700; color:#FFD166;">Grandma Era ❤️</div>
+        </div>
+
+        <div style="padding:20px 0; border-top:1px solid rgba(255,255,255,0.1); border-bottom:1px solid rgba(255,255,255,0.1);">
+          <div style="font-family:var(--font-serif); font-size:1.4rem; font-style:italic; color:#FFF; margin-bottom:8px;">
+            "Season 2026 begins now."
+          </div>
+          <div style="font-family:var(--font-display); font-size:2.2rem; color:var(--ruby-bright);">
+            HAPPY BIRTHDAY NISHAMMA ❤️
+          </div>
+        </div>
+
+        <div>
+          <button class="btn btn-primary" id="replay-story-btn">
+            ▶ REPLAY STORY
+          </button>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- 16. SECRET EASTER EGG BUTTON -->
+  <button class="easter-egg-btn" id="secret-easter-egg-btn" title="Secret Nishamma News Desk" aria-label="Easter Egg">
+    📰
+  </button>
+
+  <!-- EASTER EGG POPUP -->
+  <div class="easter-egg-popup" id="easter-egg-popup" role="dialog" aria-modal="true" aria-label="Breaking News Alert">
+    <div class="modal-card" style="max-width:500px; padding:32px; text-align:center;">
+      <div style="font-size:3rem; margin-bottom:12px;">🚨</div>
+      <h3 style="font-family:var(--font-display); font-size:2.2rem; color:var(--ruby-bright); margin-bottom:12px;">
+        BREAKING NEWS!
+      </h3>
+      <p style="font-size:1.1rem; font-weight:600; color:#FFF; margin-bottom:8px;">
+        "Nishamma has discovered another reel."
+      </p>
+      <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:20px;">
+        Family group notifications incoming in 3... 2... 1...
+      </p>
+      <div style="background:#1C1C1C; padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle); margin-bottom:24px; font-size:0.85rem; color:#FFD166;">
+        Source verification: Maybe later 😂
+      </div>
+      <button class="btn btn-primary" id="easter-egg-close-btn" style="width:100%;">
+        DISMISS & CHECK WHATSAPP 😂
+      </button>
+    </div>
+  </div>
+
+  <!-- NNN SOURCE MODAL -->
+  <div class="modal-overlay" id="nnn-source-modal" role="dialog" aria-modal="true" aria-label="Fact Check Results">
+    <div class="modal-card" style="max-width:520px; padding:36px; text-align:center;">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div style="font-size:3rem; margin-bottom:12px;">🕵️‍♂️</div>
+      <h3 style="font-family:var(--font-display); font-size:2.2rem; color:var(--ruby-bright); margin-bottom:16px;">
+        FACT CHECK RESULTS
+      </h3>
+      <div style="font-size:1.25rem; font-weight:700; color:#FFFFFF; margin-bottom:14px; line-height:1.5;">
+        "Too late.<br>Nishamma already forwarded it to everyone in the family group."
+      </div>
+      <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:24px;">
+        No fact-check can outrun Amma's WhatsApp forwarding speed.
+      </p>
+      <button class="btn btn-primary modal-close-btn" style="position:static; width:100%; border-radius:var(--radius-sm); font-size:0.95rem; height:auto; padding:12px;">
+        I ACCEPT AMMA'S NEWS 😂
+      </button>
+    </div>
+  </div>
+
+  <!-- MORE INFO MODAL -->
+  <div class="modal-overlay" id="more-info-modal" role="dialog" aria-modal="true" aria-label="Series Synopsis">
+    <div class="modal-card" style="padding:36px;">
+      <button class="modal-close-btn" aria-label="Close details">✕</button>
+      <div class="badge-original" style="margin-bottom:8px;">A FAMILY ORIGINAL • SYNOPSIS</div>
+      <h2 style="font-family:var(--font-display); font-size:2.8rem; color:#FFFFFF; margin-bottom:6px;">
+        NISHAMMA (2026)
+      </h2>
+      <div class="hero-metadata-row" style="margin-bottom:20px;">
+        <span class="badge-match">100% Match</span>
+        <span class="badge-quality">4K UHD</span>
+        <span>∞ SEASONS</span>
+        <span>KUALA LUMPUR • HOME • EVERYWHERE</span>
+      </div>
+      <p style="font-size:1.05rem; line-height:1.75; color:var(--text-secondary); margin-bottom:24px;">
+        A heartwarming, emotional, and laugh-out-loud celebration of Nisha "Nishamma" Bernard. Spanning decades of unwavering care, culinary masterstrokes, unforgettable family trips across Malaysia, hilarious WhatsApp reels, and the crowning glory of her Grandma Era with Kaylu and Emy.
+      </p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; border-top:1px solid var(--border-subtle); padding-top:20px; font-size:0.9rem;">
+        <div>
+          <span style="color:var(--text-muted); display:block; margin-bottom:4px;">Starring:</span>
+          <strong style="color:#FFF;">Nisha Bernard</strong>
+        </div>
+        <div>
+          <span style="color:var(--text-muted); display:block; margin-bottom:4px;">Featuring:</span>
+          <strong style="color:#FFF;">Bernard, Aby, Ammu, Aleena, Alen, Kaylu, Emy</strong>
+        </div>
+        <div>
+          <span style="color:var(--text-muted); display:block; margin-bottom:4px;">Director:</span>
+          <strong style="color:#FFF;">Love & Gratitude</strong>
+        </div>
+        <div>
+          <span style="color:var(--text-muted); display:block; margin-bottom:4px;">Audio:</span>
+          <strong style="color:#FFF;">Original Personalized Soundtrack</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULLSCREEN LIGHTBOX -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <button class="modal-close-btn" id="lightbox-close" style="top:24px; right:24px;" aria-label="Close photo">✕</button>
+    <button class="lightbox-nav-btn prev" id="lightbox-prev" aria-label="Previous photo">❮</button>
+    <div class="lightbox-container">
+      <img src="" alt="Full view" class="lightbox-img" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+    <button class="lightbox-nav-btn next" id="lightbox-next" aria-label="Next photo">❯</button>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- APPLICATION SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/audio-engine.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/interactive.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
