@@ -24,7 +24,10 @@ const server = http.createServer((req, res) => {
   let decodedUrl = decodeURI(req.url.split('?')[0]);
   if (decodedUrl === '/' || decodedUrl === '') decodedUrl = '/index.html';
 
-  const filePath = path.join(__dirname, decodedUrl);
+  let filePath = path.join(__dirname, decodedUrl);
+  if (!fs.existsSync(filePath) && fs.existsSync(path.join(__dirname, 'public', decodedUrl))) {
+    filePath = path.join(__dirname, 'public', decodedUrl);
+  }
 
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -36,7 +39,6 @@ const server = http.createServer((req, res) => {
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
-  // Support range requests for smooth video & audio playback
   const range = req.headers.range;
   if (range && (ext === '.mp4' || ext === '.mp3')) {
     const parts = range.replace(/bytes=/, '').split('-');
