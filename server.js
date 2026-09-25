@@ -60,14 +60,20 @@ function resolveFilePath(reqUrl) {
   if (['.png', '.jpg', '.jpeg', '.webp'].includes(ext)) {
     for (const dir of candidateDirs) {
       const fallbackImg = path.join(dir, 'assets', 'image.png');
-      if (fs.existsSync(fallbackImg)) return fallbackImg;
+      if (fs.existsSync(fallbackImg) && !fs.statSync(fallbackImg).isDirectory()) return fallbackImg;
     }
+    return null;
+  }
+
+  // If a media or code file was explicitly requested and not found, do not serve HTML
+  if (['.mp4', '.mp3', '.wav', '.css', '.js', '.json'].includes(ext)) {
+    return null;
   }
 
   // Fallback for navigation routes to index.html
   for (const dir of candidateDirs) {
     const indexPath = path.join(dir, 'index.html');
-    if (fs.existsSync(indexPath)) return indexPath;
+    if (fs.existsSync(indexPath) && !fs.statSync(indexPath).isDirectory()) return indexPath;
   }
 
   return null;

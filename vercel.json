@@ -3,11 +3,5 @@
     "server.js": {
       "includeFiles": "{assets/**,index.html}"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/server.js"
-    }
-  ]
+  }
 }
