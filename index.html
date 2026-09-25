@@ -2645,7 +2645,7 @@ img, video {
       <div class="mom-chat-container">
         <div class="chat-header">
           <div class="chat-user-info">
-            <img src="assets/image copy 5.png" alt="Amma" class="chat-avatar">
+            <img src="assets/image_copy_5.png" alt="Amma" class="chat-avatar">
             <div>
               <div class="chat-user-title">Amma ❤️ (Nishamma)</div>
               <div class="chat-user-status">online • typing...</div>
@@ -2778,7 +2778,7 @@ img, video {
           </div>
 
           <div class="grandma-photo-frame" onclick="openGalleryLightbox(1)" tabindex="0" role="button" aria-label="Nishamma holding Kaylu and Emy">
-            <img src="assets/image copy.png" alt="Nishamma holding Kaylu and Emy by the water" class="grandma-photo">
+            <img src="assets/image_copy.png" alt="Nishamma holding Kaylu and Emy by the water" class="grandma-photo">
             <div style="position:absolute; bottom:0; left:0; right:0; padding:18px; background:linear-gradient(0deg, rgba(8,8,8,0.9), transparent); text-align:center;">
               <span style="font-weight:700; color:#FFD166; font-size:1.05rem;">Nishamma with Kaylu & Emy ❤️</span>
             </div>
@@ -3119,11 +3119,1685 @@ img, video {
   <!-- TOAST CONTAINER -->
   <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
-  <!-- APPLICATION SCRIPTS -->
-  <script src="js/data.js"></script>
-  <script src="js/audio-engine.js"></script>
-  <script src="js/carousel.js"></script>
-  <script src="js/interactive.js"></script>
-  <script src="js/main.js"></script>
+  <!-- APPLICATION SCRIPTS (Inlined for 100% Reliability on Vercel) -->
+  <script>
+
+/* === js/data.js === */
+/* ==========================================================================
+   NISHAMMA+: DATA ENGINE & METADATA BINDINGS
+   ========================================================================== */
+
+const NISHAMMA_DATA = {
+  profiles: [
+    {
+      id: 'nishamma',
+      name: 'Nishamma',
+      role: 'The Star of the Show ❤️',
+      avatar: 'assets/image.png',
+      isStar: true,
+      tagline: 'The Heart of the Family',
+      greeting: 'Welcome, Nishamma! Your Original Series is ready to stream.'
+    },
+    {
+      id: 'bernard',
+      name: 'Bernard',
+      role: 'Husband • Her Forever Co-Star ❤️',
+      avatar: 'assets/image_copy_.png',
+      isStar: false,
+      tagline: 'Partner in crime since day one',
+      greeting: 'Bernard has entered the watch party!'
+    },
+    {
+      id: 'aby-ammu',
+      name: 'Aby & Ammu',
+      role: 'Son & Daughter-in-law ❤️',
+      avatar: 'assets/image_copy_.png',
+      isStar: false,
+      tagline: 'Tech support & biggest fans',
+      greeting: 'Aby & Ammu are watching!'
+    },
+    {
+      id: 'aleena-alen',
+      name: 'Aleena & Alen',
+      role: 'Daughter & Son-in-law ❤️',
+      avatar: 'assets/image_copy_.png',
+      isStar: false,
+      tagline: 'The joy & laughter department',
+      greeting: 'Aleena & Alen have tuned in!'
+    },
+    {
+      id: 'kaylu',
+      name: 'Kaylu',
+      role: "Aby & Ammu's Baby ❤️",
+      avatar: 'assets/image_copy.png',
+      isStar: false,
+      tagline: "Grandma's newest favourite episode ❤️",
+      greeting: "Kaylu is giggling at Grandma's series!"
+    },
+    {
+      id: 'emy',
+      name: 'Emy',
+      role: "Aleena & Alen's Baby ❤️",
+      avatar: 'assets/image_copy.png',
+      isStar: false,
+      tagline: "Grandma's sweetest little co-star ❤️",
+      greeting: "Emy is clapping for Grandma!"
+    }
+  ],
+
+  continueWatching: [
+    {
+      id: 'ep-01',
+      number: '01',
+      title: 'The Malaysian Days 🇲🇾',
+      subtitle: 'Memories of Kuala Lumpur & Beyond',
+      desc: 'Walking through KLCC park, Petronas fountains, and Genting smiles that never fade.',
+      image: 'assets/image_copy_.png',
+      progress: 88,
+      duration: '48m',
+      targetSection: 'episode-01'
+    },
+    {
+      id: 'ep-02',
+      number: '02',
+      title: 'Family First',
+      subtitle: 'The Heart of Every Home',
+      desc: 'From daily routines to celebrations, Nishamma is the glue that keeps all of us together.',
+      image: 'assets/image_copy_.png',
+      progress: 100,
+      duration: '52m',
+      targetSection: 'episode-02'
+    },
+    {
+      id: 'ep-03',
+      number: '03',
+      title: 'The News Reporter 😂',
+      subtitle: 'WhatsApp Forwarding Champion',
+      desc: 'Confidence: 100%. Source: A random reel. Family fact check: Always pending!',
+      image: 'assets/image_copy_.png',
+      progress: 45,
+      duration: '35m',
+      targetSection: 'episode-04'
+    },
+    {
+      id: 'ep-04',
+      number: '04',
+      title: 'Did You Eat?',
+      subtitle: "The Ultimate Love Language",
+      desc: '"Are you okay? Why didn\'t you call? Call me when you reach."',
+      image: 'assets/image_copy_.png',
+      progress: 95,
+      duration: '60m',
+      targetSection: 'episode-03'
+    },
+    {
+      id: 'ep-05',
+      number: '05',
+      title: 'Grandma Era ❤️',
+      subtitle: 'New Season Unlocked',
+      desc: 'Featuring Kaylu & Emy: Two tiny miracles who made her enormous heart even bigger.',
+      image: 'assets/image_copy.png',
+      progress: 15,
+      duration: '∞ Seasons',
+      targetSection: 'episode-05'
+    },
+    {
+      id: 'ep-06',
+      number: '06',
+      title: 'Still Caring...',
+      subtitle: 'Season Finale & Forever',
+      desc: 'Because after everything she does, her first thought is always everyone else.',
+      image: 'assets/image.png',
+      progress: 100,
+      duration: 'Forever',
+      targetSection: 'finale-section'
+    }
+  ],
+
+  cast: [
+    {
+      name: 'Nisha "Nishamma" Bernard',
+      role: 'The Heart ❤️',
+      subrole: 'The Leading Lady',
+      bio: 'The epicenter of our universe. Master of care, warmth, and checking if anyone is hungry.',
+      image: 'assets/image.png'
+    },
+    {
+      name: 'Bernard',
+      role: 'Her Forever Co-Star ❤️',
+      subrole: 'Husband & Partner',
+      bio: 'By her side through every chapter, from quiet mornings to grand Malaysian adventures.',
+      image: 'assets/image_copy_.png'
+    },
+    {
+      name: 'Aby',
+      role: 'Son',
+      subrole: 'Tech Support & First Critic',
+      bio: 'Always on speed dial. Receiver of daily "Have you eaten?" check-ins.',
+      image: 'assets/image_copy_.png'
+    },
+    {
+      name: 'Ammu',
+      role: 'Daughter-in-law',
+      subrole: "Aby's Wife & Kaylu's Amma",
+      bio: 'Brought warmth, elegance, and new joy into the family circle.',
+      image: 'assets/image_copy_.png'
+    },
+    {
+      name: 'Aleena',
+      role: 'Daughter',
+      subrole: "Nishamma's Mini-Me",
+      bio: "Sharing laughter, secrets, and Nishamma's caring genes with little Emy.",
+      image: 'assets/image_copy_.png'
+    },
+    {
+      name: 'Alen',
+      role: 'Son-in-law',
+      subrole: "Aleena's Husband & Emy's Appa",
+      bio: 'The cool co-star who joined the crew and embraced the family chaos with a smile.',
+      image: 'assets/image_copy_.png'
+    },
+    {
+      name: 'Kaylu',
+      role: 'Grandchild ❤️',
+      subrole: "Aby & Ammu's Baby",
+      bio: "The boss of Grandma's heart. Officially gets away with everything.",
+      image: 'assets/image_copy.png'
+    },
+    {
+      name: 'Emy',
+      role: 'Grandchild ❤️',
+      subrole: "Aleena & Alen's Baby",
+      bio: "The newest ray of sunshine who has Grandma completely wrapped around her little finger.",
+      image: 'assets/image_copy.png'
+    }
+  ],
+
+  malaysianMoments: [
+    {
+      title: 'KLCC Lake Symphony',
+      location: 'Kuala Lumpur, Malaysia',
+      image: 'assets/image_copy_.png',
+      caption: 'Bernard & Nishamma enjoying the waterfront skyline.'
+    },
+    {
+      title: 'City Park Serenity',
+      location: 'Kuala Lumpur',
+      image: 'assets/image_copy_.png',
+      caption: 'A graceful afternoon on the park bench.'
+    },
+    {
+      title: 'Urban Explorer',
+      location: 'Petronas Towers View',
+      image: 'assets/image_copy_.png',
+      caption: 'Soaking in the vibrant Kuala Lumpur skyline.'
+    },
+    {
+      title: 'Genting High Line',
+      location: 'Genting Highlands',
+      image: 'assets/image_copy_.png',
+      caption: 'Playful moments with the golden top-hat gentleman.'
+    },
+    {
+      title: 'Waterfront Whispers',
+      location: 'Lake Symphony Steps',
+      image: 'assets/image_copy_.png',
+      caption: 'A serene couple portrait by the cascades.'
+    },
+    {
+      title: 'Nature Walk',
+      location: 'Banyan Tree Roots',
+      image: 'assets/image_copy_.png',
+      caption: 'Standing together amidst the beauty of nature.'
+    }
+  ],
+
+  watchlistGenres: [
+    {
+      title: 'Feel-Good Movies',
+      icon: '🍿',
+      match: '99% Match',
+      desc: 'Stories filled with pure warmth, laughter, and uplifting endings.',
+      badge: 'Nishamma Choice'
+    },
+    {
+      title: 'Nivin Pauly Specials',
+      icon: '🎬',
+      match: '100% Match',
+      desc: 'Classic charm, Premam nostalgia, and endless family humor.',
+      badge: 'All-Time Favorite'
+    },
+    {
+      title: 'Family Time',
+      icon: '🏡',
+      match: '100% Match',
+      desc: 'Every meal together, every video call, and every loud conversation.',
+      badge: 'Essential Daily'
+    },
+    {
+      title: 'Taking Care of Everyone',
+      icon: '🍲',
+      match: '999% Match',
+      desc: 'Her unstoppable instinct to nourish, soothe, protect, and love.',
+      badge: 'Her Superpower'
+    },
+    {
+      title: 'Grandma Time',
+      icon: '👶',
+      match: '100% Match',
+      desc: 'Cuddling Kaylu and Emy — the absolute happiest moments of all.',
+      badge: 'New Era'
+    },
+    {
+      title: 'Sending Reels 😂',
+      icon: '📱',
+      match: '100% Match',
+      desc: '15 forwarded videos a day. 100% genuine concern.',
+      badge: 'NNN Breaking News'
+    }
+  ],
+
+  memoryMosaic: [
+    { image: 'assets/image.png', tag: 'The Leading Lady', title: 'Grace in Mauve Silk' },
+    { image: 'assets/image_copy.png', tag: 'Grandma Era', title: 'Holding Kaylu & Emy' },
+    { image: 'assets/image_copy_.png', tag: 'Malaysian Days', title: 'Quiet Sunshine in KL' },
+    { image: 'assets/image_copy_.png', tag: 'Love Story', title: 'Bernard & Nishamma at KLCC' },
+    { image: 'assets/image_copy_.png', tag: 'Adventures', title: 'Skyline Dreams' },
+    { image: 'assets/image_copy_.png', tag: 'Family Hearth', title: 'At Home on the Stairs' },
+    { image: 'assets/image_copy_.png', tag: 'Sunny Days', title: 'Teal in Bloom' },
+    { image: 'assets/image_copy_.png', tag: 'Playful Nishamma', title: 'A Toast at High Line' },
+    { image: 'assets/image_copy_.png', tag: 'Golden Blooms', title: 'Genting High Line Market' },
+    { image: 'assets/image_copy_.png', tag: 'Candid Joy', title: 'Smiling Under the Canopy' },
+    { image: 'assets/image_copy_.png', tag: 'Wading Waters', title: 'KLCC Park Cooling Off' },
+    { image: 'assets/image_copy_.png', tag: 'Couple Goals', title: 'Standing Strong by the Cascades' },
+    { image: 'assets/image_copy_.png', tag: 'Grounded Roots', title: 'The Banyan Tree Sanctuary' },
+    { image: 'assets/image_copy_.png', tag: 'The Kids', title: 'With Aby & Aleena' },
+    { image: 'assets/image_copy_.png', tag: 'Mother & Son', title: 'Aby and Amma' }
+  ],
+
+  finaleSentences: [
+    "She worried.",
+    "She called.",
+    "She checked if we ate.",
+    "She forwarded questionable reels.",
+    "She loved.",
+    "And she never stopped putting us first."
+  ]
+};
+
+/* === js/audio-engine.js === */
+/* ==========================================================================
+   AUDIO ENGINE — CINEMATIC SYNTHESIZER & SOUNDTRACK PLAYER
+   ========================================================================== */
+
+class AudioEngine {
+  constructor() {
+    this.audioCtx = null;
+    this.soundtrackAudio = new Audio('assets/Aluva-Puzha.mp3');
+    this.soundtrackAudio.preload = 'auto';
+    this.isPlaying = false;
+    this.isMuted = false;
+    this.volume = 0.8;
+    this.soundtrackAudio.volume = this.volume;
+
+    this.analyser = null;
+    this.audioSource = null;
+    this.animFrameId = null;
+
+    // DOM Elements
+    this.playBtn = null;
+    this.slider = null;
+    this.curTimeEl = null;
+    this.durTimeEl = null;
+    this.volSlider = null;
+    this.muteBtn = null;
+    this.waveformCanvas = null;
+    this.canvasCtx = null;
+    this.playerCard = null;
+    this.fileInput = null;
+    this.headerAudioBtn = null;
+  }
+
+  startSiteAudio() {
+    if (this.isPlaying) return;
+    this.getAudioContext();
+    const playPromise = this.soundtrackAudio.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        this.isPlaying = true;
+        this.updatePlayStateUI();
+      }).catch(err => {
+        console.log('Audio playback pending user gesture:', err);
+      });
+    }
+  }
+
+  getAudioContext() {
+    if (!this.audioCtx) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) {
+        this.audioCtx = new AudioContextClass();
+      }
+    }
+    if (this.audioCtx && this.audioCtx.state === 'suspended') {
+      this.audioCtx.resume();
+    }
+    return this.audioCtx;
+  }
+
+  /* Original Cinematic Programmatic Sound Cue (No copyright) */
+  playCinematicIntroChime() {
+    try {
+      const ctx = this.getAudioContext();
+      if (!ctx) return;
+
+      const now = ctx.currentTime;
+
+      // 1. Deep Sub-bass Theater Swell
+      const subOsc = ctx.createOscillator();
+      const subGain = ctx.createGain();
+      subOsc.type = 'sine';
+      subOsc.frequency.setValueAtTime(45, now);
+      subOsc.frequency.exponentialRampToValueAtTime(75, now + 1.8);
+      subOsc.frequency.exponentialRampToValueAtTime(32, now + 3.8);
+
+      subGain.gain.setValueAtTime(0.001, now);
+      subGain.gain.exponentialRampToValueAtTime(0.4, now + 1.2);
+      subGain.gain.exponentialRampToValueAtTime(0.001, now + 4.0);
+
+      subOsc.connect(subGain);
+      subGain.connect(ctx.destination);
+      subOsc.start(now);
+      subOsc.stop(now + 4.2);
+
+      // 2. Warm Brass/Cello Mid Harmonic
+      const midOsc = ctx.createOscillator();
+      const midGain = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
+
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(150, now);
+      filter.frequency.exponentialRampToValueAtTime(1400, now + 1.5);
+      filter.frequency.exponentialRampToValueAtTime(250, now + 3.5);
+
+      midOsc.type = 'sawtooth';
+      midOsc.frequency.setValueAtTime(110, now); // A2
+      midOsc.frequency.setValueAtTime(146.83, now + 1.0); // D3
+
+      midGain.gain.setValueAtTime(0.001, now);
+      midGain.gain.exponentialRampToValueAtTime(0.25, now + 1.0);
+      midGain.gain.exponentialRampToValueAtTime(0.001, now + 3.8);
+
+      midOsc.connect(filter);
+      filter.connect(midGain);
+      midGain.connect(ctx.destination);
+      midOsc.start(now);
+      midOsc.stop(now + 4.0);
+
+      // 3. Shimmering Chime Arpeggio (Gold stars feeling)
+      const notes = [440, 554.37, 659.25, 880, 1108.73, 1318.51];
+      notes.forEach((freq, idx) => {
+        const chimeOsc = ctx.createOscillator();
+        const chimeGain = ctx.createGain();
+        const delay = 0.8 + idx * 0.14;
+
+        chimeOsc.type = 'sine';
+        chimeOsc.frequency.setValueAtTime(freq, now + delay);
+
+        chimeGain.gain.setValueAtTime(0.001, now + delay);
+        chimeGain.gain.exponentialRampToValueAtTime(0.08, now + delay + 0.05);
+        chimeGain.gain.exponentialRampToValueAtTime(0.0001, now + delay + 1.2);
+
+        chimeOsc.connect(chimeGain);
+        chimeGain.connect(ctx.destination);
+        chimeOsc.start(now + delay);
+        chimeOsc.stop(now + delay + 1.3);
+      });
+    } catch (e) {
+      console.warn('Web Audio synthesis not supported or prevented:', e);
+    }
+  }
+
+  // Bind player UI controls
+  bindPlayerElements({
+    playBtnId,
+    sliderId,
+    curTimeId,
+    durTimeId,
+    volSliderId,
+    muteBtnId,
+    canvasId,
+    playerCardId,
+    fileInputId,
+    songTitleId,
+    songStatusId
+  }) {
+    this.playBtn = document.getElementById(playBtnId);
+    this.slider = document.getElementById(sliderId);
+    this.curTimeEl = document.getElementById(curTimeId);
+    this.durTimeEl = document.getElementById(durTimeId);
+    this.volSlider = document.getElementById(volSliderId);
+    this.muteBtn = document.getElementById(muteBtnId);
+    this.waveformCanvas = document.getElementById(canvasId);
+    this.playerCard = document.getElementById(playerCardId);
+    this.headerAudioBtn = document.getElementById('header-audio-toggle');
+    if (this.headerAudioBtn) {
+      this.headerAudioBtn.addEventListener('click', () => this.togglePlay());
+    }
+
+    if (this.songTitleEl) {
+      this.songTitleEl.textContent = 'Aluva Puzha';
+    }
+    if (this.songStatusEl) {
+      this.songStatusEl.textContent = "Nishamma's Theme • Official Soundtrack (Premam)";
+    }
+
+    if (this.waveformCanvas) {
+      this.canvasCtx = this.waveformCanvas.getContext('2d');
+      this.resizeCanvas();
+      window.addEventListener('resize', () => this.resizeCanvas());
+    }
+
+    this.setupListeners();
+    this.startWaveformVisualizer();
+  }
+
+  resizeCanvas() {
+    if (!this.waveformCanvas) return;
+    this.waveformCanvas.width = this.waveformCanvas.parentElement.clientWidth || 300;
+    this.waveformCanvas.height = 60;
+  }
+
+  setupListeners() {
+    if (this.playBtn) {
+      this.playBtn.addEventListener('click', () => this.togglePlay());
+    }
+
+    if (this.slider) {
+      this.slider.addEventListener('input', () => {
+        if (this.soundtrackAudio.duration) {
+          const seekTo = (this.slider.value / 100) * this.soundtrackAudio.duration;
+          this.soundtrackAudio.currentTime = seekTo;
+        }
+      });
+    }
+
+    if (this.volSlider) {
+      this.volSlider.addEventListener('input', () => {
+        this.volume = this.volSlider.value / 100;
+        this.soundtrackAudio.volume = this.volume;
+        if (this.volume === 0) {
+          this.isMuted = true;
+          this.updateMuteIcon();
+        } else if (this.isMuted) {
+          this.isMuted = false;
+          this.updateMuteIcon();
+        }
+      });
+    }
+
+    if (this.muteBtn) {
+      this.muteBtn.addEventListener('click', () => {
+        this.isMuted = !this.isMuted;
+        this.soundtrackAudio.muted = this.isMuted;
+        this.updateMuteIcon();
+      });
+    }
+
+    if (this.fileInput) {
+      this.fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          this.loadAudioFile(file);
+        }
+      });
+    }
+
+    // Audio lifecycle events
+    this.soundtrackAudio.addEventListener('timeupdate', () => this.onTimeUpdate());
+    this.soundtrackAudio.addEventListener('loadedmetadata', () => this.onMetadataLoaded());
+    this.soundtrackAudio.addEventListener('ended', () => this.onEnded());
+    this.soundtrackAudio.addEventListener('error', (e) => this.onAudioError(e));
+  }
+
+  loadAudioFile(file) {
+    const url = URL.createObjectURL(file);
+    this.soundtrackAudio.src = url;
+    if (this.songTitleEl) {
+      this.songTitleEl.textContent = file.name.replace(/\.[^/.]+$/, '');
+    }
+    if (this.songStatusEl) {
+      this.songStatusEl.textContent = 'Custom song loaded!';
+    }
+    this.soundtrackAudio.play().then(() => {
+      this.isPlaying = true;
+      this.updatePlayStateUI();
+    }).catch(e => console.log('Playback prevented:', e));
+  }
+
+  togglePlay() {
+    if (!this.soundtrackAudio.src) {
+      if (this.fileInput) {
+        this.fileInput.click();
+      }
+      return;
+    }
+
+    if (this.isPlaying) {
+      this.soundtrackAudio.pause();
+      this.isPlaying = false;
+    } else {
+      this.getAudioContext();
+      this.soundtrackAudio.play().then(() => {
+        this.isPlaying = true;
+      }).catch(err => {
+        console.warn('Playback error:', err);
+      });
+    }
+    this.updatePlayStateUI();
+  }
+
+  updatePlayStateUI() {
+    if (this.playBtn) {
+      this.playBtn.innerHTML = this.isPlaying
+        ? `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`
+        : `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+      this.playBtn.setAttribute('aria-label', this.isPlaying ? 'Pause' : 'Play');
+    }
+
+    if (this.headerAudioBtn) {
+      if (this.isPlaying) {
+        this.headerAudioBtn.classList.add('is-playing');
+      } else {
+        this.headerAudioBtn.classList.remove('is-playing');
+      }
+    }
+
+    if (this.playerCard) {
+      if (this.isPlaying) {
+        this.playerCard.classList.add('is-playing');
+      } else {
+        this.playerCard.classList.remove('is-playing');
+      }
+    }
+  }
+
+  updateMuteIcon() {
+    if (this.muteBtn) {
+      this.muteBtn.innerHTML = this.isMuted
+        ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>`
+        : `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>`;
+    }
+  }
+
+  onTimeUpdate() {
+    const cur = this.soundtrackAudio.currentTime || 0;
+    const dur = this.soundtrackAudio.duration || 0;
+    if (this.slider && dur > 0) {
+      this.slider.value = (cur / dur) * 100;
+    }
+    if (this.curTimeEl) {
+      this.curTimeEl.textContent = this.formatTime(cur);
+    }
+  }
+
+  onMetadataLoaded() {
+    if (this.durTimeEl) {
+      this.durTimeEl.textContent = this.formatTime(this.soundtrackAudio.duration);
+    }
+  }
+
+  onEnded() {
+    this.isPlaying = false;
+    this.updatePlayStateUI();
+  }
+
+  onAudioError() {
+    this.isPlaying = false;
+    this.updatePlayStateUI();
+    if (this.songStatusEl) {
+      this.songStatusEl.textContent = 'Audio ready for your track (click "Load Song" to select)';
+    }
+  }
+
+  formatTime(seconds) {
+    if (isNaN(seconds) || seconds < 0) return '0:00';
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+  }
+
+  /* Waveform Visualizer */
+  startWaveformVisualizer() {
+    if (!this.waveformCanvas || !this.canvasCtx) return;
+
+    let phase = 0;
+    const render = () => {
+      const ctx = this.canvasCtx;
+      const w = this.waveformCanvas.width;
+      const h = this.waveformCanvas.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const numBars = 48;
+      const barWidth = (w / numBars) - 2;
+
+      for (let i = 0; i < numBars; i++) {
+        let barHeight;
+        if (this.isPlaying) {
+          // Dynamic active waveform
+          const freq = Math.sin(phase + i * 0.28) * 0.5 + 0.5;
+          const noise = Math.cos(phase * 1.5 + i * 0.15) * 0.3;
+          barHeight = Math.max(4, (freq + noise) * (h * 0.85));
+        } else {
+          // Ambient gentle pulse
+          barHeight = 4 + Math.sin(phase * 0.3 + i * 0.2) * 2;
+        }
+
+        const x = i * (barWidth + 2);
+        const y = h - barHeight;
+
+        // Gradient for bars
+        const grad = ctx.createLinearGradient(0, y, 0, h);
+        if (this.isPlaying) {
+          grad.addColorStop(0, '#FF2B35');
+          grad.addColorStop(0.7, '#E50914');
+          grad.addColorStop(1, '#660000');
+        } else {
+          grad.addColorStop(0, '#555555');
+          grad.addColorStop(1, '#222222');
+        }
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.roundRect ? ctx.roundRect(x, y, barWidth, barHeight, 2) : ctx.rect(x, y, barWidth, barHeight);
+        ctx.fill();
+      }
+
+      phase += this.isPlaying ? 0.08 : 0.02;
+      this.animFrameId = requestAnimationFrame(render);
+    };
+
+    render();
+  }
+}
+
+window.AudioEngine = AudioEngine;
+
+/* === js/carousel.js === */
+/* ==========================================================================
+   STREAMING CAROUSEL CONTROLLER
+   ========================================================================== */
+
+class StreamCarousel {
+  constructor(trackElement, prevBtn, nextBtn) {
+    this.track = trackElement;
+    this.prevBtn = prevBtn;
+    this.nextBtn = nextBtn;
+
+    this.isDown = false;
+    this.startX = 0;
+    this.scrollLeft = 0;
+
+    this.init();
+  }
+
+  init() {
+    if (!this.track) return;
+
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', () => this.scrollBy(-340));
+    }
+
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', () => this.scrollBy(340));
+    }
+
+    // Mouse drag support for desktop
+    this.track.addEventListener('mousedown', (e) => {
+      this.isDown = true;
+      this.startX = e.pageX - this.track.offsetLeft;
+      this.scrollLeft = this.track.scrollLeft;
+      this.track.style.cursor = 'grabbing';
+      this.track.style.userSelect = 'none';
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (this.isDown) {
+        this.isDown = false;
+        this.track.style.cursor = 'grab';
+        this.track.style.removeProperty('user-select');
+      }
+    });
+
+    this.track.addEventListener('mousemove', (e) => {
+      if (!this.isDown) return;
+      e.preventDefault();
+      const x = e.pageX - this.track.offsetLeft;
+      const walk = (x - this.startX) * 1.5;
+      this.track.scrollLeft = this.scrollLeft - walk;
+    });
+
+    // Keyboard Arrow navigation when focused
+    this.track.setAttribute('tabindex', '0');
+    this.track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        this.scrollBy(300);
+      } else if (e.key === 'ArrowLeft') {
+        this.scrollBy(-300);
+      }
+    });
+  }
+
+  scrollBy(distance) {
+    this.track.scrollBy({
+      left: distance,
+      behavior: 'smooth'
+    });
+  }
+}
+
+window.StreamCarousel = StreamCarousel;
+
+/* === js/interactive.js === */
+/* ==========================================================================
+   INTERACTIVE LOGIC — INTRO, PROFILES, CHAT, NNN, LOVE METER, FINALE & LIGHTBOX
+   ========================================================================== */
+
+class InteractiveSystem {
+  constructor(audioEngine) {
+    this.audio = audioEngine;
+    this.currentProfile = NISHAMMA_DATA.profiles[0];
+    this.lightboxIndex = 0;
+    this.easterEggClicks = 0;
+    this.isChatAnimated = false;
+    this.isFinaleAnimated = false;
+
+    this.init();
+  }
+
+  init() {
+    this.setupIntroSequence();
+    this.setupProfiles();
+    this.setupChatSimulator();
+    this.setupNNNNews();
+    this.setupLoveMeter();
+    this.setupEasterEgg();
+    this.setupLightbox();
+    this.setupModals();
+    this.setupConfetti();
+  }
+
+  /* ========================================================================
+     1. CINEMATIC INTRO SEQUENCE
+     ======================================================================== */
+  setupIntroSequence() {
+    const introEl = document.getElementById('cinematic-intro');
+    const laserLine = document.getElementById('intro-laser-line');
+    const monogram = document.getElementById('intro-monogram');
+    const badgeTag = document.getElementById('intro-badge-tag');
+    const titleReveal = document.getElementById('intro-title-reveal');
+    const skipBtn = document.getElementById('skip-intro-btn');
+
+    if (!introEl) return;
+
+    const startAnimation = () => {
+      // Step 1: Laser line & Sound (0.4s)
+      setTimeout(() => {
+        if (laserLine) {
+          laserLine.style.opacity = '1';
+          laserLine.style.transform = 'scaleX(1)';
+        }
+        if (this.audio) {
+          this.audio.playCinematicIntroChime();
+        }
+      }, 400);
+
+      // Step 2: Glowing Monogram 'N' (1.4s)
+      setTimeout(() => {
+        if (monogram) {
+          monogram.style.opacity = '1';
+          monogram.style.transform = 'scale(1) translateY(0)';
+          monogram.style.filter = 'blur(0)';
+        }
+      }, 1400);
+
+      // Step 3: "A FAMILY ORIGINAL" (2.6s)
+      setTimeout(() => {
+        if (badgeTag) {
+          badgeTag.style.opacity = '1';
+          badgeTag.style.transform = 'translateY(0)';
+        }
+      }, 2600);
+
+      // Step 4: "NISHAMMA" (3.8s)
+      setTimeout(() => {
+        if (titleReveal) {
+          titleReveal.style.opacity = '1';
+          titleReveal.style.transform = 'translateY(0)';
+        }
+      }, 3800);
+
+      // Step 5: Transition to Profile Screen (6.2s)
+      setTimeout(() => {
+        this.finishIntro();
+      }, 6200);
+    };
+
+    // User interaction or auto-trigger
+    const userInteract = () => {
+      document.removeEventListener('click', userInteract);
+      document.removeEventListener('keydown', userInteract);
+      if (this.audio) {
+        this.audio.getAudioContext();
+        this.audio.startSiteAudio();
+      }
+    };
+    document.addEventListener('click', userInteract, { once: true });
+    document.addEventListener('keydown', userInteract, { once: true });
+
+    if (skipBtn) {
+      skipBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.finishIntro();
+      });
+    }
+
+    // Try auto-play immediately if browser allows
+    if (this.audio) {
+      this.audio.startSiteAudio();
+    }
+
+    startAnimation();
+  }
+
+  finishIntro() {
+    const introEl = document.getElementById('cinematic-intro');
+    if (introEl && !introEl.classList.contains('is-hidden')) {
+      introEl.classList.add('is-hidden');
+    }
+    if (this.audio) {
+      this.audio.startSiteAudio();
+    }
+  }
+
+  /* ========================================================================
+     2. WHO'S WATCHING? PROFILE SELECTION
+     ======================================================================== */
+  setupProfiles() {
+    const profileOverlay = document.getElementById('profile-selection-screen');
+    const profileGrid = document.getElementById('profile-grid');
+    const headerProfilePill = document.getElementById('header-profile-pill');
+
+    if (!profileGrid) return;
+
+    // Render Profiles from Data
+    profileGrid.innerHTML = NISHAMMA_DATA.profiles.map(p => `
+      <div class="profile-card ${p.isStar ? 'is-star' : ''}" data-id="${p.id}" tabindex="0" role="button" aria-label="${p.name}">
+        <div class="profile-avatar-box">
+          <img src="${p.avatar}" alt="${p.name}" class="profile-img" loading="lazy">
+        </div>
+        <div class="profile-name">${p.name}</div>
+        <div class="profile-tagline">${p.tagline}</div>
+      </div>
+    `).join('');
+
+    const cards = profileGrid.querySelectorAll('.profile-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-id');
+        const profile = NISHAMMA_DATA.profiles.find(p => p.id === id);
+        this.selectProfile(profile);
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          card.click();
+        }
+      });
+    });
+
+    if (headerProfilePill) {
+      headerProfilePill.addEventListener('click', () => {
+        if (profileOverlay) {
+          profileOverlay.classList.remove('is-hidden');
+        }
+      });
+    }
+  }
+
+  selectProfile(profile) {
+    if (this.audio) {
+      this.audio.startSiteAudio();
+    }
+    this.currentProfile = profile;
+    const profileOverlay = document.getElementById('profile-selection-screen');
+    const avatarImg = document.getElementById('header-avatar-img');
+    const avatarName = document.getElementById('header-avatar-name');
+
+    if (avatarImg) avatarImg.src = profile.avatar;
+    if (avatarName) avatarName.textContent = profile.name;
+
+    if (profileOverlay) {
+      profileOverlay.classList.add('is-hidden');
+    }
+
+    if (profile.id === 'nishamma') {
+      this.showToast('❤️ Welcome, Nishamma! Your Original Series is now streaming.');
+    } else {
+      this.showToast(`✨ Watching as ${profile.name} (${profile.role})`);
+    }
+  }
+
+  /* ========================================================================
+     3. EPISODE 03: THE OVERCARING MOM (CHAT SIMULATOR)
+     ======================================================================== */
+  setupChatSimulator() {
+    const chatBody = document.getElementById('chat-simulator-body');
+    const replayBtn = document.getElementById('replay-chat-btn');
+    if (!chatBody) return;
+
+    this.runChatSequence();
+
+    if (replayBtn) {
+      replayBtn.addEventListener('click', () => {
+        this.runChatSequence();
+      });
+    }
+  }
+
+  runChatSequence() {
+    const chatBody = document.getElementById('chat-simulator-body');
+    if (!chatBody) return;
+
+    chatBody.innerHTML = '';
+
+    const messages = [
+      { sender: 'mom', text: 'Did you eat lunch? Don\'t skip meals.' },
+      { sender: 'me', text: 'Yes Amma, I just ate! Don\'t worry.' },
+      { sender: 'mom', text: 'What did you eat? Was it homemade?' },
+      { sender: 'mom', text: 'Are you okay? Why didn\'t you call in the morning?' },
+      { sender: 'me', text: 'I had a meeting Amma, will call you soon.' },
+      { sender: 'mom', text: 'Call me when you reach home without fail. 😂❤️' }
+    ];
+
+    let delay = 300;
+
+    messages.forEach((msg, idx) => {
+      // Add typing indicator before mom messages
+      if (msg.sender === 'mom') {
+        setTimeout(() => {
+          this.showTypingIndicator(chatBody);
+        }, delay);
+        delay += 900;
+      }
+
+      setTimeout(() => {
+        this.removeTypingIndicator(chatBody);
+        const bubble = document.createElement('div');
+        bubble.className = `chat-bubble ${msg.sender === 'mom' ? 'incoming' : 'outgoing'}`;
+        const timeStr = new Date(Date.now() - (messages.length - idx) * 60000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        bubble.innerHTML = `
+          <div>${msg.text}</div>
+          <div class="chat-timestamp">${timeStr}</div>
+        `;
+        chatBody.appendChild(bubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, delay);
+
+      delay += 800;
+    });
+  }
+
+  showTypingIndicator(container) {
+    this.removeTypingIndicator(container);
+    const typing = document.createElement('div');
+    typing.id = 'active-typing-indicator';
+    typing.className = 'typing-box';
+    typing.innerHTML = `
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+    `;
+    container.appendChild(typing);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  removeTypingIndicator(container) {
+    const active = container.querySelector('#active-typing-indicator');
+    if (active) active.remove();
+  }
+
+  /* ========================================================================
+     4. EPISODE 04: BREAKING NEWS NETWORK (NNN)
+     ======================================================================== */
+  setupNNNNews() {
+    const checkSourceBtn = document.getElementById('check-source-btn');
+    const nnnModal = document.getElementById('nnn-source-modal');
+
+    if (checkSourceBtn && nnnModal) {
+      checkSourceBtn.addEventListener('click', () => {
+        nnnModal.classList.add('is-open');
+        this.triggerNotificationFrenzy();
+      });
+    }
+  }
+
+  triggerNotificationFrenzy() {
+    const notificationTexts = [
+      'WhatsApp: Amma forwarded a video (Forwarded many times)',
+      'WhatsApp: "Drink hot water at 4 AM to cure all problems!"',
+      'WhatsApp: "NASA says tomorrow moon is red!"',
+      'Aby: "Amma that is from Facebook 2012 😂"',
+      'Amma: "Still very good advice, you should try!"'
+    ];
+
+    notificationTexts.forEach((text, i) => {
+      setTimeout(() => {
+        this.showToast(text, 4000);
+      }, i * 700);
+    });
+  }
+
+  /* ========================================================================
+     5. UNIQUE FEATURE: FAMILY LOVE METER
+     ======================================================================== */
+  setupLoveMeter() {
+    const holdBtn = document.getElementById('love-meter-btn');
+    const fillBar = document.getElementById('love-meter-fill');
+    const percentLabel = document.getElementById('love-meter-percent');
+    const statusLabel = document.getElementById('love-meter-status');
+
+    if (!holdBtn || !fillBar || !percentLabel) return;
+
+    let holdInterval = null;
+    let currentPercent = 10;
+
+    const stages = [
+      { val: 25, label: "Reminding everyone to drink water..." },
+      { val: 50, label: "Packing double snacks for everyone..." },
+      { val: 75, label: "Calling 4 times before the flight lands..." },
+      { val: 100, label: "Making sure all 8 people have eaten..." },
+      { val: 200, label: "Watching reels and forwarding to 6 groups..." },
+      { val: 500, label: "Grandma superpowers fully unlocked..." },
+      { val: 999, label: "🚨 ERROR: TOO MUCH LOVE ❤️" }
+    ];
+
+    const startCharging = () => {
+      if (holdInterval) clearInterval(holdInterval);
+      holdInterval = setInterval(() => {
+        if (currentPercent < 999) {
+          if (currentPercent < 100) currentPercent += 3;
+          else if (currentPercent < 300) currentPercent += 12;
+          else currentPercent += 35;
+
+          if (currentPercent > 999) currentPercent = 999;
+
+          fillBar.style.width = `${Math.min(100, (currentPercent / 999) * 100)}%`;
+          percentLabel.textContent = `${currentPercent}%`;
+
+          const curStage = [...stages].reverse().find(s => currentPercent >= s.val);
+          if (curStage && statusLabel) {
+            statusLabel.textContent = curStage.label;
+          }
+
+          if (currentPercent >= 999) {
+            clearInterval(holdInterval);
+            statusLabel.innerHTML = `<strong>🚨 ERROR: TOO MUCH LOVE ❤️</strong><br><span style="color:#FFF;">Please eat something and call her back immediately!</span>`;
+            holdBtn.textContent = 'HEART OVERFLOWING ❤️';
+            this.launchConfetti();
+          }
+        }
+      }, 50);
+    };
+
+    const stopCharging = () => {
+      if (currentPercent < 999) {
+        clearInterval(holdInterval);
+      }
+    };
+
+    holdBtn.addEventListener('mousedown', startCharging);
+    window.addEventListener('mouseup', stopCharging);
+    holdBtn.addEventListener('touchstart', (e) => { e.preventDefault(); startCharging(); });
+    window.addEventListener('touchend', stopCharging);
+  }
+
+  /* ========================================================================
+     6. SECRET EASTER EGG (3 CLICKS ON REEL ICON)
+     ======================================================================== */
+  setupEasterEgg() {
+    const eggBtn = document.getElementById('secret-easter-egg-btn');
+    const popup = document.getElementById('easter-egg-popup');
+    const closeBtn = document.getElementById('easter-egg-close-btn');
+
+    if (!eggBtn) return;
+
+    eggBtn.addEventListener('click', () => {
+      this.easterEggClicks++;
+      if (this.easterEggClicks === 1) {
+        this.showToast('🗞️ Breaking news hint: Click 2 more times...');
+      } else if (this.easterEggClicks === 2) {
+        this.showToast('🗞️ Almost there! 1 more click...');
+      } else if (this.easterEggClicks >= 3) {
+        this.easterEggClicks = 0;
+        if (popup) popup.classList.add('is-active');
+        this.triggerNotificationFrenzy();
+      }
+    });
+
+    if (closeBtn && popup) {
+      closeBtn.addEventListener('click', () => {
+        popup.classList.remove('is-active');
+      });
+    }
+  }
+
+  /* ========================================================================
+     7. FULLSCREEN LIGHTBOX
+     ======================================================================== */
+  setupLightbox() {
+    const modal = document.getElementById('lightbox-modal');
+    const imgEl = document.getElementById('lightbox-img');
+    const captionEl = document.getElementById('lightbox-caption');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    if (!modal) return;
+
+    this.lightboxImages = NISHAMMA_DATA.memoryMosaic;
+
+    const openLightbox = (index) => {
+      this.lightboxIndex = index;
+      const item = this.lightboxImages[this.lightboxIndex];
+      if (item && imgEl) {
+        imgEl.src = item.image;
+        if (captionEl) {
+          captionEl.textContent = `${item.tag} — ${item.title} (${this.lightboxIndex + 1}/${this.lightboxImages.length})`;
+        }
+        modal.classList.add('is-open');
+      }
+    };
+
+    window.openGalleryLightbox = (idx) => openLightbox(idx);
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        this.lightboxIndex = (this.lightboxIndex - 1 + this.lightboxImages.length) % this.lightboxImages.length;
+        openLightbox(this.lightboxIndex);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        this.lightboxIndex = (this.lightboxIndex + 1) % this.lightboxImages.length;
+        openLightbox(this.lightboxIndex);
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('is-open');
+      });
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('is-open');
+    });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('is-open')) return;
+      if (e.key === 'Escape') modal.classList.remove('is-open');
+      if (e.key === 'ArrowLeft' && prevBtn) prevBtn.click();
+      if (e.key === 'ArrowRight' && nextBtn) nextBtn.click();
+    });
+  }
+
+  /* ========================================================================
+     8. MODALS & INFO DIALOGS
+     ======================================================================== */
+  setupModals() {
+    const moreInfoBtn = document.getElementById('hero-more-info-btn');
+    const moreInfoModal = document.getElementById('more-info-modal');
+    const closeBtns = document.querySelectorAll('.modal-close-btn');
+
+    if (moreInfoBtn && moreInfoModal) {
+      moreInfoBtn.addEventListener('click', () => {
+        moreInfoModal.classList.add('is-open');
+      });
+    }
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modal = btn.closest('.modal-overlay');
+        if (modal) modal.classList.remove('is-open');
+      });
+    });
+
+    // Close on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.classList.remove('is-open');
+      });
+    });
+  }
+
+  /* ========================================================================
+     9. BIRTHDAY FINALE TRIGGER
+     ======================================================================== */
+  triggerFinaleSequence() {
+    if (this.isFinaleAnimated) return;
+    this.isFinaleAnimated = true;
+
+    const sentenceEl = document.getElementById('finale-sentence-display');
+    const grandTitle = document.getElementById('finale-grand-title');
+    const letterBox = document.getElementById('finale-letter-box');
+
+    const sentences = NISHAMMA_DATA.finaleSentences;
+    let delay = 400;
+
+    sentences.forEach((sentence, idx) => {
+      setTimeout(() => {
+        if (sentenceEl) {
+          sentenceEl.style.opacity = '0';
+          sentenceEl.style.transform = 'translateY(15px)';
+          setTimeout(() => {
+            sentenceEl.textContent = `"${sentence}"`;
+            sentenceEl.style.transition = 'all 0.8s var(--ease-cinematic)';
+            sentenceEl.style.opacity = '1';
+            sentenceEl.style.transform = 'translateY(0)';
+          }, 300);
+        }
+      }, delay);
+      delay += 2400;
+    });
+
+    // Final grand reveal
+    setTimeout(() => {
+      if (sentenceEl) sentenceEl.style.display = 'none';
+      if (grandTitle) {
+        grandTitle.style.display = 'block';
+        grandTitle.style.animation = 'hero-slow-zoom 1.2s ease';
+      }
+      if (letterBox) {
+        letterBox.style.display = 'block';
+        letterBox.style.animation = 'chat-bubble-pop 1s var(--ease-spring)';
+      }
+      this.launchConfetti();
+    }, delay + 500);
+  }
+
+  /* ========================================================================
+     10. CONFETTI EFFECT (CANVAS-BASED)
+     ======================================================================== */
+  setupConfetti() {
+    this.confettiCanvas = document.createElement('canvas');
+    this.confettiCanvas.id = 'confetti-canvas';
+    this.confettiCanvas.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:950;display:none;';
+    document.body.appendChild(this.confettiCanvas);
+  }
+
+  launchConfetti() {
+    const canvas = this.confettiCanvas;
+    if (!canvas) return;
+    canvas.style.display = 'block';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d');
+
+    const particles = [];
+    const colors = ['#E50914', '#FF2B35', '#FFD166', '#FFFFFF', '#FF85A1'];
+
+    for (let i = 0; i < 120; i++) {
+      particles.push({
+        x: canvas.width / 2 + (Math.random() - 0.5) * 400,
+        y: canvas.height * 0.4 + (Math.random() - 0.5) * 200,
+        vx: (Math.random() - 0.5) * 14,
+        vy: -Math.random() * 12 - 4,
+        size: Math.random() * 8 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rotation: Math.random() * 360,
+        rSpeed: (Math.random() - 0.5) * 12,
+        gravity: 0.35,
+        opacity: 1
+      });
+    }
+
+    let frames = 0;
+    const renderConfetti = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = false;
+
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.gravity;
+        p.rotation += p.rSpeed;
+        if (frames > 50) p.opacity -= 0.015;
+
+        if (p.opacity > 0) {
+          alive = true;
+          ctx.save();
+          ctx.globalAlpha = p.opacity;
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+          ctx.restore();
+        }
+      });
+
+      frames++;
+      if (alive && frames < 240) {
+        requestAnimationFrame(renderConfetti);
+      } else {
+        canvas.style.display = 'none';
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    };
+
+    renderConfetti();
+  }
+
+  showToast(message, duration = 3200) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `<span>${message}</span>`;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(100%)';
+      toast.style.transition = 'all 0.35s ease';
+      setTimeout(() => toast.remove(), 350);
+    }, duration);
+  }
+}
+
+window.InteractiveSystem = InteractiveSystem;
+
+/* === js/main.js === */
+/* ==========================================================================
+   MAIN APPLICATION COORDINATOR — INITIALIZATION & OBSERVERS
+   ========================================================================== */
+
+/* Global Asset Fallback Handler */
+window.addEventListener('error', (e) => {
+  if (e.target && e.target.tagName === 'IMG') {
+    const src = e.target.getAttribute('src');
+    if (!src) return;
+    const stage = parseInt(e.target.dataset.fallbackStage || '0', 10);
+    if (stage === 0) {
+      e.target.dataset.fallbackStage = '1';
+      if (src.includes(' ') || src.includes('%20')) {
+        e.target.src = src.replace(/%20| /g, '_');
+      } else if (!src.startsWith('/') && !src.startsWith('./')) {
+        e.target.src = './' + src;
+      } else {
+        e.target.dataset.fallbackStage = '2';
+        e.target.src = 'assets/image.png';
+      }
+    } else if (stage === 1) {
+      e.target.dataset.fallbackStage = '2';
+      e.target.src = 'assets/image.png';
+    }
+  }
+}, true);
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Initialize Audio Engine
+  const audioEngine = new window.AudioEngine();
+  audioEngine.bindPlayerElements({
+    playBtnId: 'soundtrack-play-btn',
+    sliderId: 'soundtrack-slider',
+    curTimeId: 'soundtrack-time-cur',
+    durTimeId: 'soundtrack-time-dur',
+    volSliderId: 'soundtrack-volume',
+    muteBtnId: 'soundtrack-mute-btn',
+    canvasId: 'soundtrack-waveform',
+    playerCardId: 'music-player-card',
+    fileInputId: 'soundtrack-file-input',
+    songTitleId: 'soundtrack-title',
+    songStatusId: 'soundtrack-status'
+  });
+
+  // 2. Initialize Interactive Systems
+  const interactive = new window.InteractiveSystem(audioEngine);
+
+  // 3. Render Dynamic Content Rows
+  renderContinueWatching(interactive);
+  renderCastBrowser(interactive);
+  renderMalaysianMoments(interactive);
+  renderWatchlist();
+  renderMemoryMosaic();
+
+  // 4. Initialize Carousels
+  setupCarousels();
+
+  // 5. Scroll Tracker & Nav State
+  setupScrollTracking(interactive);
+
+  // 6. Action Buttons
+  setupHeroButtons(interactive);
+});
+
+/* Continue Watching Shelf Renderer */
+function renderContinueWatching(interactive) {
+  const track = document.getElementById('continue-watching-track');
+  if (!track) return;
+
+  track.innerHTML = NISHAMMA_DATA.continueWatching.map(ep => `
+    <div class="watch-card" data-target="${ep.targetSection}" tabindex="0" role="button" aria-label="Play ${ep.title}">
+      <div class="watch-card-thumbnail-box">
+        <img src="${ep.image}" alt="${ep.title}" class="watch-card-img" loading="lazy">
+        <div class="watch-card-badge">EP ${ep.number}</div>
+        <div class="watch-card-play-overlay">
+          <div class="play-circle-icon">▶</div>
+        </div>
+        <div class="stream-progress-bar" style="position:absolute; bottom:0; left:0; right:0;">
+          <div class="stream-progress-fill" style="width: ${ep.progress}%;"></div>
+        </div>
+      </div>
+      <div class="watch-card-info">
+        <div class="watch-card-ep-num">Episode ${ep.number} • ${ep.duration}</div>
+        <div class="watch-card-title">${ep.title}</div>
+        <div class="watch-card-desc">${ep.desc}</div>
+      </div>
+    </div>
+  `).join('');
+
+  // Click to scroll to target episode
+  track.querySelectorAll('.watch-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const targetId = card.getAttribute('data-target');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+}
+
+/* Cast Browser Carousel Renderer */
+function renderCastBrowser(interactive) {
+  const track = document.getElementById('cast-track');
+  if (!track) return;
+
+  track.innerHTML = NISHAMMA_DATA.cast.map(person => `
+    <div class="cast-card" tabindex="0" role="button" aria-label="Cast member ${person.name}">
+      <div class="cast-photo-wrapper">
+        <img src="${person.image}" alt="${person.name}" class="cast-photo" loading="lazy">
+        <div class="cast-gradient"></div>
+      </div>
+      <div class="cast-details">
+        <div class="cast-name">${person.name}</div>
+        <div class="cast-role">${person.role}</div>
+        <div class="cast-relationship">${person.bio}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* Malaysian Days Filmstrip Renderer */
+function renderMalaysianMoments(interactive) {
+  const container = document.getElementById('malaysian-moments-filmstrip');
+  if (!container) return;
+
+  container.innerHTML = NISHAMMA_DATA.malaysianMoments.map((moment, i) => `
+    <div class="filmstrip-frame" onclick="openGalleryLightbox(${i})" tabindex="0" role="button" aria-label="${moment.title}">
+      <img src="${moment.image}" alt="${moment.title}" class="filmstrip-img" loading="lazy">
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:8px; background:linear-gradient(0deg, rgba(0,0,0,0.85), transparent); font-size:0.75rem; font-weight:700;">
+        ${moment.title}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* Watchlist Genre Renderer */
+function renderWatchlist() {
+  const grid = document.getElementById('watchlist-grid');
+  if (!grid) return;
+
+  grid.innerHTML = NISHAMMA_DATA.watchlistGenres.map(item => `
+    <div class="genre-card" tabindex="0" role="button">
+      <div class="genre-card-icon">${item.icon}</div>
+      <div class="genre-card-title">${item.title}</div>
+      <div class="genre-card-desc">${item.desc}</div>
+      <div class="genre-meta-row">
+        <span class="badge-match">${item.match}</span>
+        <span class="badge-quality">${item.badge}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* Memory Mosaic Masonry Renderer */
+function renderMemoryMosaic() {
+  const gallery = document.getElementById('mosaic-gallery');
+  if (!gallery) return;
+
+  gallery.innerHTML = NISHAMMA_DATA.memoryMosaic.map((item, idx) => `
+    <div class="mosaic-item" onclick="openGalleryLightbox(${idx})" tabindex="0" role="button" aria-label="${item.title}">
+      <img src="${item.image}" alt="${item.title}" class="mosaic-img" loading="lazy">
+      <div class="mosaic-caption-overlay">
+        <span class="mosaic-caption-tag">${item.tag}</span>
+        <span class="mosaic-caption-text">${item.title}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* Setup Carousel Controllers */
+function setupCarousels() {
+  const cwTrack = document.getElementById('continue-watching-track');
+  const cwPrev = document.getElementById('cw-prev-btn');
+  const cwNext = document.getElementById('cw-next-btn');
+  if (cwTrack) new window.StreamCarousel(cwTrack, cwPrev, cwNext);
+
+  const castTrack = document.getElementById('cast-track');
+  const castPrev = document.getElementById('cast-prev-btn');
+  const castNext = document.getElementById('cast-next-btn');
+  if (castTrack) new window.StreamCarousel(castTrack, castPrev, castNext);
+}
+
+/* Scroll Tracker & Nav Observer */
+function setupScrollTracking(interactive) {
+  const progressBar = document.getElementById('scroll-progress-bar');
+  const stagePillText = document.getElementById('scroll-stage-text');
+  const header = document.getElementById('stream-header');
+
+  const stages = [
+    { id: 'hero-section', label: 'INTRO' },
+    { id: 'episode-01', label: 'MEMORIES' },
+    { id: 'episode-02', label: 'FAMILY' },
+    { id: 'episode-05', label: 'GRANDMA ERA' },
+    { id: 'soundtrack-section', label: 'SOUNDTRACK' },
+    { id: 'finale-section', label: 'FINALE' }
+  ];
+
+  window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+
+    if (progressBar) {
+      progressBar.style.width = `${progress}%`;
+    }
+
+    if (header) {
+      if (window.scrollY > 40) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    // Determine current stage
+    let activeStage = 'INTRO';
+    for (const stage of stages) {
+      const el = document.getElementById(stage.id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.45) {
+          activeStage = stage.label;
+        }
+      }
+    }
+
+    if (stagePillText && stagePillText.textContent !== activeStage) {
+      stagePillText.textContent = activeStage;
+    }
+  }, { passive: true });
+
+  // IntersectionObserver for Finale Sequence trigger
+  const finaleEl = document.getElementById('finale-section');
+  if (finaleEl) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          interactive.triggerFinaleSequence();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(finaleEl);
+  }
+}
+
+/* Hero Action Buttons */
+function setupHeroButtons(interactive) {
+  const playStoryBtn = document.getElementById('hero-play-btn');
+  const myListBtn = document.getElementById('hero-my-list-btn');
+  const replayBtn = document.getElementById('replay-story-btn');
+
+  if (playStoryBtn) {
+    playStoryBtn.addEventListener('click', () => {
+      const ep1 = document.getElementById('episode-01');
+      if (ep1) ep1.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  let inList = false;
+  if (myListBtn) {
+    myListBtn.addEventListener('click', () => {
+      inList = !inList;
+      myListBtn.innerHTML = inList
+        ? `✓ IN MY LIST`
+        : `♡ MY LIST`;
+      interactive.showToast(inList ? 'Added to Nishamma Watchlist! ❤️' : 'Removed from Watchlist');
+    });
+  }
+
+  if (replayBtn) {
+    replayBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      interactive.showToast('Restarting Nishamma Original Series! 🍿');
+    });
+  }
+}
+
+  </script>
 </body>
 </html>

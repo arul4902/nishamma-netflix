@@ -6,13 +6,21 @@
 window.addEventListener('error', (e) => {
   if (e.target && e.target.tagName === 'IMG') {
     const src = e.target.getAttribute('src');
-    if (src && !e.target.dataset.triedFallback) {
-      e.target.dataset.triedFallback = 'true';
-      if (!src.startsWith('/') && !src.startsWith('./')) {
+    if (!src) return;
+    const stage = parseInt(e.target.dataset.fallbackStage || '0', 10);
+    if (stage === 0) {
+      e.target.dataset.fallbackStage = '1';
+      if (src.includes(' ') || src.includes('%20')) {
+        e.target.src = src.replace(/%20| /g, '_');
+      } else if (!src.startsWith('/') && !src.startsWith('./')) {
         e.target.src = './' + src;
-      } else if (src.startsWith('assets/')) {
-        e.target.src = '/assets/' + src.replace(/^assets\//, '');
+      } else {
+        e.target.dataset.fallbackStage = '2';
+        e.target.src = 'assets/image.png';
       }
+    } else if (stage === 1) {
+      e.target.dataset.fallbackStage = '2';
+      e.target.src = 'assets/image.png';
     }
   }
 }, true);
