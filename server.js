@@ -74,16 +74,24 @@ function resolveFilePath(reqUrl) {
 }
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/__debug') {
+  const reqUrl = req.headers['x-forwarded-url'] ||
+                 req.headers['x-matched-path'] ||
+                 req.headers['x-invoke-path'] ||
+                 req.url || '/';
+
+  if (reqUrl.includes('__debug')) {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     try {
       res.end(JSON.stringify({
+        reqUrl,
+        rawUrl: req.url,
+        headers: req.headers,
         cwd: process.cwd(),
         dirname: __dirname,
         cwdFiles: fs.readdirSync(process.cwd()),
         dirnameFiles: fs.readdirSync(__dirname),
-        assetsInCwd: fs.existsSync(path.join(process.cwd(), 'assets')) ? fs.readdirSync(path.join(process.cwd(), 'assets')) : 'no assets in cwd',
-        assetsInDirname: fs.existsSync(path.join(__dirname, 'assets')) ? fs.readdirSync(path.join(__dirname, 'assets')) : 'no assets in dirname'
+        assetsInCwd: fs.existsSync(path.join(process.cwd(), 'assets')) ? fs.readdirSync(path.join(process.cwd(), 'assets')) : 'none',
+        assetsInDirname: fs.existsSync(path.join(__dirname, 'assets')) ? fs.readdirSync(path.join(__dirname, 'assets')) : 'none'
       }, null, 2));
     } catch (e) {
       res.end(JSON.stringify({ error: e.message, stack: e.stack }));
@@ -91,7 +99,9 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  const filePath = resolveFilePath(req.url);
+  // Prevent serving server.js itself as code
+  const targetUrl = (reqUrl === '/server.js' || reqUrl === 'server.js') ? '/index.html' : reqUrl;
+  const filePath = resolveFilePath(targetUrl);
 
   if (!filePath || !fs.existsSync(filePath)) {
     res.writeHead(404, { 'Content-Type': 'application/json' });
